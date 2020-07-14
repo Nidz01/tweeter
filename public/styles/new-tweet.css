@@ -1,0 +1,26 @@
+.new-tweet {
+  width: 100%;
+  align-items: center;
+}
+
+.new-tweet > form > textarea {
+  border-color: transparent;
+  border-bottom: 2px solid;
+  background-color: #f4f1ec;
+  width: 100%;
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+#button {
+  background-color:#4056A1;
+  color: #ffffff;
+  font-family: "Bungee";
+}
+#counter {
+  float: right;
+  font-weight: bold;
+}
+
+.fontRed {
+  color: red;
+}
