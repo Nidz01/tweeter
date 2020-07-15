@@ -1,11 +1,14 @@
 .new-tweet {
-  width: 100%;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+  margin-bottom: 30px;
 }
 
 .new-tweet > form > textarea {
-  border-color: transparent;
-  border-bottom: 2px solid;
+  border: none;
+    border-bottom: 2px solid;
+  resize: none;
   background-color: #f4f1ec;
   width: 100%;
   padding-bottom: 0px;
@@ -23,4 +26,58 @@
 
 .fontRed {
   color: red;
+}
+
+/*
+TWEETS DISPLAY STYLING"
+*/
+#tweets-container {
+  display: flex;
+  flex-direction: column;
+  background-color:  #f4f1ec;
+  border: 2px solid black;
+  width: inherit;
+}
+
+#tweet-header {
+  flex-direction: row;
+  background-color: #f5f5f5;
+  width: 100%;
+  height: 50px;
+  padding: 5px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+#tweet-header.logo {
+order: 1;
+}
+
+.name {
+  order: 2;
+  margin: 0;
+  margin-left: 10px;
+}
+
+.style-name {
+  order: 3;
+  margin-right: 10px;
+  margin-left: auto;
+}
+
+article > div {
+  width: 100%;
+  padding: 30px 15px;
+}
+
+article > footer {
+  width: 100%;
+  height: 35px;
+  padding: 10px;
+  font-size: 0.5em;
+  float: left;
+}
+
+#tweets-container :hover {
+  box-shadow:10px 10px gray;
 }
