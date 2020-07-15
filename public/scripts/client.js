@@ -44,19 +44,28 @@ $("#form").on("submit", function(event) {
   //prepare data for Ajax calling
   const data = $(this).serialize();
 
-  //ajax post request 
+  //data validation before sending it to server
+  //slice method to remove unwanted strings in start of input
+  const validationData = data.slice(5);
+
+  if (validationData.length > 140) {
+    $('#error-message').text("Your message is too long!").toggle(true);
+  }
+  else if (validationData === "" || validationData === null) {
+    $('#error-message').text("Your message is empty!").toggle(true);
+  } else {
+      //ajax post request to send data to server
   $.ajax({
     url:"/tweets/",
         method: "POST",
         data,
     success: function (data) {
-      //console.log to see if request was successful
-      console.log("ajax request was successful");
         loadTweets(data);
       },
     error: function () {}
 
   });
+  }
 });
 //function that load tweets from db, and show on screen (call renderTweets function)
 const loadTweets = function() {
