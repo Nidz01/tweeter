@@ -43,6 +43,7 @@
       <h2>Compose Tweet</h2>
       <form id="form" Content-Type="application/x-www-form-urlencoded" action="/tweets/" method="POST">
         <textarea name="text" id="tweet-text"placeholder="What are you humming about?"></textarea>
+        <span id="error-message"></span>
         <div>
           <button id="button"type="submit">Tweet</button>
           <output id="counter" class="counter" for="tweet-text">140</output>
