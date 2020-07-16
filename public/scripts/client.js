@@ -6,7 +6,7 @@
 
 const createTweetElement = function(tweetData) {
   //clear the container before to read all tweets
-  $("#tweets-container").empty();
+  //$("#tweets-container").empty();
    // markup
  let $tweet = `<article>
  <header id="tweet-header">
@@ -34,8 +34,14 @@ for (let i = 0; i < tweets.length; i++) {
  }
 
 $(document).ready( function() {
+
+  //click event on textarea
+  $("#tweet-text").on("click", function(event) {
+    $('#error-message').text("");
+    $(this).val('');
+  });
   //event listener to submit button
-$("#form").on("submit", function(event) {
+  $("#form").on("submit", function(event) {
   //prevent to change the page
   event.preventDefault();
 
@@ -49,22 +55,22 @@ $("#form").on("submit", function(event) {
   const validationData = data.slice(5);
 
   if (validationData.length > 140) {
-    $('#error-message').text("Your message is too long!").toggle(true);
+    $('#error-message').text("Your message is too long!");
   }
   else if (validationData === "" || validationData === null) {
-    $('#error-message').text("Your message is empty!").toggle(true);
+    $('#error-message').text("Your message is empty!");
   } else {
       //ajax post request to send data to server
   $.ajax({
     url:"/tweets/",
         method: "POST",
-        data,
+        data: data,
     success: function (data) {
         loadTweets(data);
       },
     error: function () {}
-
   });
+  $('#error-message').text("");
   }
 });
 //function that load tweets from db, and show on screen (call renderTweets function)
@@ -79,4 +85,7 @@ const loadTweets = function() {
     error: function () {}
   });
 };
+//start the app showing the tweets
+loadTweets();
+
 });
