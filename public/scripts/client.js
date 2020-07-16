@@ -9,7 +9,7 @@ const createTweetElement = function (tweetData) {
   //$("#tweets-container").empty();
   // markup
   let tweet = `
-  <article>
+  <article id="tweet-article">
   <header id="tweet-header">
     <img class="logo" src=${tweetData.user.avatars} />
     <h2 class="name">${tweetData.user.name}</h2>
@@ -23,12 +23,12 @@ const createTweetElement = function (tweetData) {
 };
 
 const renderTweets = function (tweets) {
-  
+
   //clear the container before to read all tweets
   $("#tweets-container").empty();
 
   // loops through tweets
-  for (let i = 0; i < tweets.length; i++) {
+  for (let i = (tweets.length - 1); i >= 0 ; i--) {
 
     // calls createTweetElement for each tweet
     let tweet = createTweetElement(tweets[i]);
