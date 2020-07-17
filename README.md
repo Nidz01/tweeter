@@ -7,6 +7,12 @@ Back-End development includes Node, Express and MongoDB.
 
 ## Final Product
 
+!["Screenshot of tweeter single page app"](https://github.com/Nidz01/tweeter/blob/master/docs/tweeter-single-page-app.png?raw=true)
+!["Screenshot of adjustable Responsive design"](https://github.com/Nidz01/tweeter/blob/master/docs/responsive-design-view.png?raw=true)
+!["Screenshot of hover effect"](https://github.com/Nidz01/tweeter/blob/master/docs/hover-over-tweet.png?raw=true)
+!["Screenshot of error message when no tweet is entered"](https://github.com/Nidz01/tweeter/blob/master/docs/no-tweet-error-message.png?raw=true)
+!["Screenshot of error message when too long tweet is entered"](https://github.com/Nidz01/tweeter/blob/master/docs/too-long-tweet-error-message.png?raw=true)
+
 
 ## Getting Started
 
