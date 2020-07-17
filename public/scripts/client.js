@@ -43,7 +43,6 @@ $(document).ready(function () {
   $("#tweet-text").on("click", function (event) {
     $('#error-message').text("");
     let currentValue = $(this).val();
-    console.log("current value length is", currentValue.length)
     if( currentValue === "" || currentValue.length > 140 ) {
       $(this).val('');
     }
