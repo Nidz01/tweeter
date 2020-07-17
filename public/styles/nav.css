@@ -1,7 +1,9 @@
 .nav {
+  position: sticky;
   display: flex;
+  top: 0;
   background-color:#4056A1;
-  height: 120px;
+  height: 80px;
   width: 100%;
   color: #ffffff;
   padding: 1.5em;
