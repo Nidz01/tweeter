@@ -39,10 +39,14 @@ const renderTweets = function (tweets) {
 };
 
 $(document).ready(function () {
-  //click event on textarea
+    //click event on textarea which will empty text area and remove error message
   $("#tweet-text").on("click", function (event) {
     $('#error-message').text("");
-    $(this).val('');
+    let currentValue = $(this).val();
+    console.log("current value length is", currentValue.length)
+    if( currentValue === "" || currentValue.length > 140 ) {
+      $(this).val('');
+    }
   });
 
   //event listener to submit button
