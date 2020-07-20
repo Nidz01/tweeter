@@ -16,7 +16,7 @@ const createTweetElement = function (tweetData) {
     <span class="style-name">${tweetData.user.handle}</span>
   </header>
   <div>${tweetData.content.text}</div>
-  <footer>X days ago
+  <footer>2 days ago
   <div class="options">
   <span><i class="fa fa-flag" aria-hidden="true"></i></span>
   <span><i class="fa fa-retweet" aria-hidden="true"></i></span>
