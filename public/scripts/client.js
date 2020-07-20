@@ -16,7 +16,13 @@ const createTweetElement = function (tweetData) {
     <span class="style-name">${tweetData.user.handle}</span>
   </header>
   <div>${tweetData.content.text}</div>
-  <footer>X days ago</footer>
+  <footer>X days ago
+  <div class="options">
+  <span><i class="fa fa-flag" aria-hidden="true"></i></span>
+  <span><i class="fa fa-retweet" aria-hidden="true"></i></span>
+  <span<i class="fa fa-heart" aria-hidden="true"></i></span>
+  </div>
+  </footer>
   </article>
  `;
   return tweet;
@@ -39,7 +45,7 @@ const renderTweets = function (tweets) {
 };
 
 $(document).ready(function () {
-    //click event on textarea which will empty text area and remove error message
+  //click event on textarea which will empty text area and remove error message
   $("#tweet-text").on("click", function (event) {
     $('#error-message').text("");
     let currentValue = $(this).val();
@@ -64,11 +70,9 @@ $(document).ready(function () {
     const validationData = data.slice(5);
 
     if (validationData.length > 140) {
-
       $('#error-message').text("Your message is too long!");
 
     } else if (validationData === "" || validationData === null) {
-
       $('#error-message').text("Your message is empty!");
     
     } else {
