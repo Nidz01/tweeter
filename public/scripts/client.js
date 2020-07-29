@@ -3,6 +3,23 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+//function to convert ms from 1970 to time in the past from today
+const msToOther = ms => {
+  const diff = Date.now() - ms;
+  if (diff < 1000) {
+    return "Moments";
+  } else if (diff < 60000) {
+    return Math.floor(diff / 1000) + " second(s)";
+  } else if (diff < 360000) {
+    return Math.floor(diff / 60000) + " minute(s)";
+  } else if (diff < 86400000) {
+    return Math.floor(diff / 360000) + " hour(s)";
+  } else if (diff < 31536000000) {
+    return Math.floor(diff / 86400000) + " day(s)";
+  } else {
+    return Math.floor(diff / 31536000000) + " year(s)";
+  }
+};
 
 const createTweetElement = function (tweetData) {
   //clear the container before to read all tweets
@@ -16,7 +33,7 @@ const createTweetElement = function (tweetData) {
     <span class="style-name">${tweetData.user.handle}</span>
   </header>
   <div>${tweetData.content.text}</div>
-  <footer>2 days ago
+  </div><footer><span class="time">${msToOther(tweetData.created_at)} ago</span>
   <div class="options">
   <span><i class="fa fa-flag" aria-hidden="true"></i></span>
   <span><i class="fa fa-retweet" aria-hidden="true"></i></span>
@@ -48,10 +65,6 @@ $(document).ready(function () {
   //click event on textarea which will empty text area and remove error message
   $("#tweet-text").on("click", function (event) {
     $('#error-message').text("");
-    let currentValue = $(this).val();
-    if( currentValue === "" || currentValue.length > 140 ) {
-      $(this).val('');
-    }
   });
 
   //event listener to submit button
@@ -84,11 +97,12 @@ $(document).ready(function () {
         data: data,
         success: function (data) {
           loadTweets(data);
+          $('#error-message').text("");
+          $('#tweet-text').val("");
+          $('#counter').val('140');
         },
         error: function () { }
       });
-
-      $('#error-message').text("");
     }
   });
   //function that load tweets from db, and show on screen (call renderTweets function)
@@ -103,7 +117,6 @@ $(document).ready(function () {
       error: function () { }
     });
   };
-  //start the app showing the tweets
-  loadTweets();
-
+    //start the app showing the tweets
+    loadTweets();
 });
